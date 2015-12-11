@@ -1,0 +1,69 @@
+C:\Users\Jon\Documents\Jon-Share\MvcMusicStore-v3.0\MvcMusicStore\MvcMusicStore\bin\MvcMusicStore.dll
+C:\Users\Jon\Documents\Jon-Share\MvcMusicStore-v3.0\MvcMusicStore\MvcMusicStore\bin\MvcMusicStore.pdb
+C:\Users\Jon\Documents\Jon-Share\MvcMusicStore-v3.0\MvcMusicStore\MvcMusicStore\bin\EntityFramework.dll
+C:\Users\Jon\Documents\Jon-Share\MvcMusicStore-v3.0\MvcMusicStore\MvcMusicStore\bin\EntityFramework.xml
+C:\Users\Jon\Documents\Jon-Share\MvcMusicStore-v3.0\MvcMusicStore\MvcMusicStore\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Jon\Documents\Jon-Share\MvcMusicStore-v3.0\MvcMusicStore\MvcMusicStore\obj\Debug\MvcMusicStore.dll
+C:\Users\Jon\Documents\Jon-Share\MvcMusicStore-v3.0\MvcMusicStore\MvcMusicStore\obj\Debug\MvcMusicStore.pdb
+C:\Users\Jon\Documents\Jon-Share\MvcMusicStore-v3.0\_Part 2 Complete\MvcMusicStore\bin\MvcMusicStore.dll
+C:\Users\Jon\Documents\Jon-Share\MvcMusicStore-v3.0\_Part 2 Complete\MvcMusicStore\bin\MvcMusicStore.pdb
+C:\Users\Jon\Documents\Jon-Share\MvcMusicStore-v3.0\_Part 2 Complete\MvcMusicStore\bin\EntityFramework.dll
+C:\Users\Jon\Documents\Jon-Share\MvcMusicStore-v3.0\_Part 2 Complete\MvcMusicStore\bin\EntityFramework.xml
+C:\Users\Jon\Documents\Jon-Share\MvcMusicStore-v3.0\_Part 2 Complete\MvcMusicStore\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Jon\Documents\Jon-Share\MvcMusicStore-v3.0\_Part 2 Complete\MvcMusicStore\obj\Debug\MvcMusicStore.dll
+C:\Users\Jon\Documents\Jon-Share\MvcMusicStore-v3.0\_Part 2 Complete\MvcMusicStore\obj\Debug\MvcMusicStore.pdb
+C:\Users\Jon\Desktop\Jon-Share\MvcMusicStore-v3.0\MvcMusicStore\MvcMusicStore\bin\MvcMusicStore.dll
+C:\Users\Jon\Desktop\Jon-Share\MvcMusicStore-v3.0\MvcMusicStore\MvcMusicStore\bin\MvcMusicStore.pdb
+C:\Users\Jon\Desktop\Jon-Share\MvcMusicStore-v3.0\MvcMusicStore\MvcMusicStore\bin\EntityFramework.dll
+C:\Users\Jon\Desktop\Jon-Share\MvcMusicStore-v3.0\MvcMusicStore\MvcMusicStore\bin\EntityFramework.xml
+C:\Users\Jon\Desktop\Jon-Share\MvcMusicStore-v3.0\MvcMusicStore\MvcMusicStore\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Jon\Desktop\Jon-Share\MvcMusicStore-v3.0\MvcMusicStore\MvcMusicStore\obj\Debug\MvcMusicStore.dll
+C:\Users\Jon\Desktop\Jon-Share\MvcMusicStore-v3.0\MvcMusicStore\MvcMusicStore\obj\Debug\MvcMusicStore.pdb
+C:\Users\doncor\Downloads\MvcMusicStore-v3.0\MvcMusicStore-v3.0\MvcMusicStore-Completed\MvcMusicStore\bin\MvcMusicStore.dll.config
+C:\Users\doncor\Downloads\MvcMusicStore-v3.0\MvcMusicStore-v3.0\MvcMusicStore-Completed\MvcMusicStore\bin\MvcMusicStore.dll
+C:\Users\doncor\Downloads\MvcMusicStore-v3.0\MvcMusicStore-v3.0\MvcMusicStore-Completed\MvcMusicStore\bin\MvcMusicStore.pdb
+C:\Users\doncor\Downloads\MvcMusicStore-v3.0\MvcMusicStore-v3.0\MvcMusicStore-Completed\MvcMusicStore\bin\EntityFramework.dll
+C:\Users\doncor\Downloads\MvcMusicStore-v3.0\MvcMusicStore-v3.0\MvcMusicStore-Completed\MvcMusicStore\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\doncor\Downloads\MvcMusicStore-v3.0\MvcMusicStore-v3.0\MvcMusicStore-Completed\MvcMusicStore\bin\System.Web.Helpers.dll
+C:\Users\doncor\Downloads\MvcMusicStore-v3.0\MvcMusicStore-v3.0\MvcMusicStore-Completed\MvcMusicStore\bin\System.Web.Mvc.dll
+C:\Users\doncor\Downloads\MvcMusicStore-v3.0\MvcMusicStore-v3.0\MvcMusicStore-Completed\MvcMusicStore\bin\System.Web.Razor.dll
+C:\Users\doncor\Downloads\MvcMusicStore-v3.0\MvcMusicStore-v3.0\MvcMusicStore-Completed\MvcMusicStore\bin\System.Web.WebPages.Deployment.dll
+C:\Users\doncor\Downloads\MvcMusicStore-v3.0\MvcMusicStore-v3.0\MvcMusicStore-Completed\MvcMusicStore\bin\System.Web.WebPages.dll
+C:\Users\doncor\Downloads\MvcMusicStore-v3.0\MvcMusicStore-v3.0\MvcMusicStore-Completed\MvcMusicStore\bin\System.Web.WebPages.Razor.dll
+C:\Users\doncor\Downloads\MvcMusicStore-v3.0\MvcMusicStore-v3.0\MvcMusicStore-Completed\MvcMusicStore\bin\EntityFramework.xml
+C:\Users\doncor\Downloads\MvcMusicStore-v3.0\MvcMusicStore-v3.0\MvcMusicStore-Completed\MvcMusicStore\bin\System.Web.Helpers.xml
+C:\Users\doncor\Downloads\MvcMusicStore-v3.0\MvcMusicStore-v3.0\MvcMusicStore-Completed\MvcMusicStore\bin\System.Web.Mvc.xml
+C:\Users\doncor\Downloads\MvcMusicStore-v3.0\MvcMusicStore-v3.0\MvcMusicStore-Completed\MvcMusicStore\bin\System.Web.Razor.xml
+C:\Users\doncor\Downloads\MvcMusicStore-v3.0\MvcMusicStore-v3.0\MvcMusicStore-Completed\MvcMusicStore\bin\System.Web.WebPages.xml
+C:\Users\doncor\Downloads\MvcMusicStore-v3.0\MvcMusicStore-v3.0\MvcMusicStore-Completed\MvcMusicStore\bin\System.Web.WebPages.Deployment.xml
+C:\Users\doncor\Downloads\MvcMusicStore-v3.0\MvcMusicStore-v3.0\MvcMusicStore-Completed\MvcMusicStore\bin\System.Web.WebPages.Razor.xml
+C:\Users\doncor\Downloads\MvcMusicStore-v3.0\MvcMusicStore-v3.0\MvcMusicStore-Completed\MvcMusicStore\obj\Debug\MvcMusicStore.csprojResolveAssemblyReference.cache
+C:\Users\doncor\Downloads\MvcMusicStore-v3.0\MvcMusicStore-v3.0\MvcMusicStore-Completed\MvcMusicStore\obj\Debug\MvcMusicStore.dll
+C:\Users\doncor\Downloads\MvcMusicStore-v3.0\MvcMusicStore-v3.0\MvcMusicStore-Completed\MvcMusicStore\obj\Debug\MvcMusicStore.pdb
+C:\Users\DCORDOVA\Code\C-Sharp\MvcMusicStore-v3.0\MvcMusicStore-v3.0\MvcMusicStore-Completed\MvcMusicStore\bin\MvcMusicStore.dll.config
+C:\Users\DCORDOVA\Code\C-Sharp\MvcMusicStore-v3.0\MvcMusicStore-v3.0\MvcMusicStore-Completed\MvcMusicStore\bin\MvcMusicStore.dll
+C:\Users\DCORDOVA\Code\C-Sharp\MvcMusicStore-v3.0\MvcMusicStore-v3.0\MvcMusicStore-Completed\MvcMusicStore\bin\MvcMusicStore.pdb
+C:\Users\DCORDOVA\Code\C-Sharp\MvcMusicStore-v3.0\MvcMusicStore-v3.0\MvcMusicStore-Completed\MvcMusicStore\bin\EntityFramework.dll
+C:\Users\DCORDOVA\Code\C-Sharp\MvcMusicStore-v3.0\MvcMusicStore-v3.0\MvcMusicStore-Completed\MvcMusicStore\bin\EntityFramework.SqlServer.dll
+C:\Users\DCORDOVA\Code\C-Sharp\MvcMusicStore-v3.0\MvcMusicStore-v3.0\MvcMusicStore-Completed\MvcMusicStore\bin\EntityFramework.SqlServerCompact.dll
+C:\Users\DCORDOVA\Code\C-Sharp\MvcMusicStore-v3.0\MvcMusicStore-v3.0\MvcMusicStore-Completed\MvcMusicStore\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\DCORDOVA\Code\C-Sharp\MvcMusicStore-v3.0\MvcMusicStore-v3.0\MvcMusicStore-Completed\MvcMusicStore\bin\System.Data.SqlServerCe.dll
+C:\Users\DCORDOVA\Code\C-Sharp\MvcMusicStore-v3.0\MvcMusicStore-v3.0\MvcMusicStore-Completed\MvcMusicStore\bin\System.Web.Helpers.dll
+C:\Users\DCORDOVA\Code\C-Sharp\MvcMusicStore-v3.0\MvcMusicStore-v3.0\MvcMusicStore-Completed\MvcMusicStore\bin\System.Web.Mvc.dll
+C:\Users\DCORDOVA\Code\C-Sharp\MvcMusicStore-v3.0\MvcMusicStore-v3.0\MvcMusicStore-Completed\MvcMusicStore\bin\System.Web.Mvc.Extensions.dll
+C:\Users\DCORDOVA\Code\C-Sharp\MvcMusicStore-v3.0\MvcMusicStore-v3.0\MvcMusicStore-Completed\MvcMusicStore\bin\System.Web.Razor.dll
+C:\Users\DCORDOVA\Code\C-Sharp\MvcMusicStore-v3.0\MvcMusicStore-v3.0\MvcMusicStore-Completed\MvcMusicStore\bin\System.Web.WebPages.Deployment.dll
+C:\Users\DCORDOVA\Code\C-Sharp\MvcMusicStore-v3.0\MvcMusicStore-v3.0\MvcMusicStore-Completed\MvcMusicStore\bin\System.Web.WebPages.dll
+C:\Users\DCORDOVA\Code\C-Sharp\MvcMusicStore-v3.0\MvcMusicStore-v3.0\MvcMusicStore-Completed\MvcMusicStore\bin\System.Web.WebPages.Razor.dll
+C:\Users\DCORDOVA\Code\C-Sharp\MvcMusicStore-v3.0\MvcMusicStore-v3.0\MvcMusicStore-Completed\MvcMusicStore\bin\EntityFramework.xml
+C:\Users\DCORDOVA\Code\C-Sharp\MvcMusicStore-v3.0\MvcMusicStore-v3.0\MvcMusicStore-Completed\MvcMusicStore\bin\EntityFramework.SqlServer.xml
+C:\Users\DCORDOVA\Code\C-Sharp\MvcMusicStore-v3.0\MvcMusicStore-v3.0\MvcMusicStore-Completed\MvcMusicStore\bin\EntityFramework.SqlServerCompact.xml
+C:\Users\DCORDOVA\Code\C-Sharp\MvcMusicStore-v3.0\MvcMusicStore-v3.0\MvcMusicStore-Completed\MvcMusicStore\bin\System.Web.Helpers.xml
+C:\Users\DCORDOVA\Code\C-Sharp\MvcMusicStore-v3.0\MvcMusicStore-v3.0\MvcMusicStore-Completed\MvcMusicStore\bin\System.Web.Mvc.xml
+C:\Users\DCORDOVA\Code\C-Sharp\MvcMusicStore-v3.0\MvcMusicStore-v3.0\MvcMusicStore-Completed\MvcMusicStore\bin\System.Web.Mvc.Extensions.xml
+C:\Users\DCORDOVA\Code\C-Sharp\MvcMusicStore-v3.0\MvcMusicStore-v3.0\MvcMusicStore-Completed\MvcMusicStore\bin\System.Web.Razor.xml
+C:\Users\DCORDOVA\Code\C-Sharp\MvcMusicStore-v3.0\MvcMusicStore-v3.0\MvcMusicStore-Completed\MvcMusicStore\bin\System.Web.WebPages.xml
+C:\Users\DCORDOVA\Code\C-Sharp\MvcMusicStore-v3.0\MvcMusicStore-v3.0\MvcMusicStore-Completed\MvcMusicStore\bin\System.Web.WebPages.Deployment.xml
+C:\Users\DCORDOVA\Code\C-Sharp\MvcMusicStore-v3.0\MvcMusicStore-v3.0\MvcMusicStore-Completed\MvcMusicStore\bin\System.Web.WebPages.Razor.xml
+C:\Users\DCORDOVA\Code\C-Sharp\MvcMusicStore-v3.0\MvcMusicStore-v3.0\MvcMusicStore-Completed\MvcMusicStore\obj\Debug\MvcMusicStore.dll
+C:\Users\DCORDOVA\Code\C-Sharp\MvcMusicStore-v3.0\MvcMusicStore-v3.0\MvcMusicStore-Completed\MvcMusicStore\obj\Debug\MvcMusicStore.pdb
