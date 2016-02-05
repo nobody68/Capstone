@@ -4,34 +4,58 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using ReviewsApp.Models;
 
 namespace ReviewsApp.Controllers
 {
+    [Authorize]
     public class FavoritesController : Controller
     {
-        private MyDbContext db = new MyDbContext();
+        private MyDbContext db;
+        private UserManager<ApplicationUser> manager;
+
+        public FavoritesController()
+        {
+            db = new MyDbContext();
+            manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+        }
 
         // GET: Favorites
         public ActionResult Index()
         {
+            var currentUser = manager.FindById(User.Identity.GetUserId());
             var favorites = db.Favorites.Include(f => f.Product);
-            return View(favorites.ToList());
+            return View(favorites.ToList().Where(favorite => favorite.User.Id == currentUser.Id));
+        }
+
+        // GET: /ToDo/All
+        [Authorize(Roles = "Admin")]
+        public async Task<ActionResult> All()
+        {
+            return View(await db.Favorites.ToListAsync());
         }
 
         // GET: Favorites/Details/5
-        public ActionResult Details(int? id)
+        public async Task<ActionResult> Details(int? id)
         {
+            var currentUser = await manager.FindByIdAsync(User.Identity.GetUserId());
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Favorite favorite = db.Favorites.Find(id);
+            var favorite = await db.Favorites.FindAsync(id);
             if (favorite == null)
             {
                 return HttpNotFound();
+            }
+            if (favorite.User.Id != currentUser.Id)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.Unauthorized);
             }
             return View(favorite);
         }
@@ -48,32 +72,37 @@ namespace ReviewsApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,UserId,ProductId")] Favorite favorite)
+        public async Task<ActionResult> Create([Bind(Include = "Id,UserId,ProductId")] Favorite favorite)
         {
+            var currentUser = await manager.FindByIdAsync(User.Identity.GetUserId());
             if (ModelState.IsValid)
             {
+                favorite.User = currentUser;
                 db.Favorites.Add(favorite);
-                db.SaveChanges();
+                await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ProductId = new SelectList(db.Products, "Id", "Name", favorite.ProductId);
             return View(favorite);
         }
 
         // GET: Favorites/Edit/5
-        public ActionResult Edit(int? id)
+        public async Task<ActionResult> Edit(int? id)
         {
+            var currentUser = await manager.FindByIdAsync(User.Identity.GetUserId());
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Favorite favorite = db.Favorites.Find(id);
+            var favorite = await db.Favorites.FindAsync(id);
             if (favorite == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.ProductId = new SelectList(db.Products, "Id", "Name", favorite.ProductId);
+            if (favorite.User.Id != currentUser.Id)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.Unauthorized);
+            }
             return View(favorite);
         }
 
@@ -82,12 +111,12 @@ namespace ReviewsApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,UserId,ProductId")] Favorite favorite)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,UserId,ProductId")] Favorite favorite)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(favorite).State = EntityState.Modified;
-                db.SaveChanges();
+                await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
             ViewBag.ProductId = new SelectList(db.Products, "Id", "Name", favorite.ProductId);
@@ -95,16 +124,21 @@ namespace ReviewsApp.Controllers
         }
 
         // GET: Favorites/Delete/5
-        public ActionResult Delete(int? id)
+        public async Task<ActionResult> Delete(int? id)
         {
+            var currentUser = await manager.FindByIdAsync(User.Identity.GetUserId());
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Favorite favorite = db.Favorites.Find(id);
+            var favorite = await db.Favorites.FindAsync(id);
             if (favorite == null)
             {
                 return HttpNotFound();
+            }
+            if (favorite.User.Id != currentUser.Id)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.Unauthorized);
             }
             return View(favorite);
         }
@@ -112,9 +146,9 @@ namespace ReviewsApp.Controllers
         // POST: Favorites/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            Favorite favorite = db.Favorites.Find(id);
+            Favorite favorite = await db.Favorites.FindAsync(id);
             db.Favorites.Remove(favorite);
             db.SaveChanges();
             return RedirectToAction("Index");
