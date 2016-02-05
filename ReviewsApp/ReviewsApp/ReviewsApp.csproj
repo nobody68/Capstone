@@ -184,6 +184,10 @@
     <Compile Include="Controllers\ToDoController.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\aspnet-WebApplication4-20130627083537.mdf" />
+    <Content Include="App_Data\aspnet-WebApplication4-20130627083537_log.ldf">
+      <DependentUpon>aspnet-WebApplication4-20130627083537.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -267,7 +271,6 @@
     <Content Include="Views\Favorites\All.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="bin\" />
   </ItemGroup>
   <ItemGroup>
