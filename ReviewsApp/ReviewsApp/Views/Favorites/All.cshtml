@@ -1,0 +1,47 @@
+﻿@model IEnumerable<ReviewsApp.Models.Favorite>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>List of Favorites for all Users</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Product.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Product.Type)
+        </th>
+        <th>@Html.DisplayNameFor(model => model.User.UserName)</th>
+        <th>@Html.DisplayNameFor(model => model.User.HomeTown)</th>
+        <th></th>
+    </tr>
+
+    @foreach (var favorite in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => favorite.Product.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => favorite.Product.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => favorite.User.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => favorite.User.HomeTown)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = favorite.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = favorite.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = favorite.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+

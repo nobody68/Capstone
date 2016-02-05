@@ -6,17 +6,28 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using ReviewsApp.Models;
 
 namespace ReviewsApp.Controllers
 {
+    [Authorize]
     public class ProductsController : Controller
     {
-        private MyDbContext db = new MyDbContext();
+        private MyDbContext db;
+        private UserManager<ApplicationUser> manager;
+
+        public ProductsController()
+        {
+            db = new MyDbContext();
+            manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+        }
 
         // GET: Products
         public ActionResult Index()
         {
+            var currentUser = manager.FindById(User.Identity.GetUserId());
             return View(db.Products.ToList());
         }
 
