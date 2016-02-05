@@ -1,41 +1,49 @@
-﻿using ReviewsApp.Models;
+using System.Collections.Generic;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
-using Microsoft.AspNet.Identity.Owin;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Web;
+using ReviewsApp.Models;
 
-namespace ReviewsApp
+namespace ReviewsApp.Migrations
 {
-    // This is useful if you do not want to tear down the database each time you run the application.
-    // You want to create a new database if the Model changes
-    public class MyDbInitializer : DropCreateDatabaseIfModelChanges<MyDbContext>
-    //public class MyDbInitializer : DropCreateDatabaseAlways<MyDbContext>
-    {
-        protected override void Seed(MyDbContext context)
-        {
-            InitializeIdentityForEF(context);
-            base.Seed(context);
+    using System;
+    using System.Data.Entity;
+    using System.Data.Entity.Migrations;
+    using System.Linq;
 
-            //InitializeTestData(context);
+    internal sealed class Configuration : DbMigrationsConfiguration<ReviewsApp.Models.MyDbContext>
+    {
+        public Configuration()
+        {
+            AutomaticMigrationsEnabled = false;
+            ContextKey = "ReviewsApp.Models.MyDbContext";
+        }
+
+        protected override void Seed(ReviewsApp.Models.MyDbContext context)
+        {
+            //  This method will be called after migrating to the latest version.
+
+            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
+            //  to avoid creating duplicate seed data. E.g.
+            //
+            //    context.People.AddOrUpdate(
+            //      p => p.FullName,
+            //      new Person { FullName = "Andrew Peters" },
+            //      new Person { FullName = "Brice Lambson" },
+            //      new Person { FullName = "Rowan Miller" }
+            //    );
+            //
+
+            InitializeIdentityForEF(context);
+            InitializeTestData(context);
         }
 
         public void InitializeTestData(MyDbContext context)
         {
-            var products = new List<Product>
-            {
+            context.Products.AddOrUpdate(
+                p => p.Name,
                 new Product { Name = "Product 1", Type = Product.ProductType.Game, Rating = "PG" },
                 new Product { Name = "Product 2", Type = Product.ProductType.Game, Rating = "PG" }
-
-            };
-
-            products.ForEach(product => context.Products.Add(product));
-            context.SaveChanges();
+            );
         }
 
         private void InitializeIdentityForEF(MyDbContext context)

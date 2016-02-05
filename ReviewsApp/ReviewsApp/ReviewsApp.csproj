@@ -87,8 +87,7 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">         
-      
+    <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Owin">
@@ -168,6 +167,11 @@
     </Compile>
     <Compile Include="IdentityExtensions\MyClaimsIdentityFactory.cs" />
     <Compile Include="IdentityExtensions\MyValidation.cs" />
+    <Compile Include="Migrations\201602051931455_InitialCreate.cs" />
+    <Compile Include="Migrations\201602051931455_InitialCreate.Designer.cs">
+      <DependentUpon>201602051931455_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
     <Compile Include="Models\AppModel.cs" />
@@ -299,6 +303,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\UsersAdmin\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201602051931455_InitialCreate.resx">
+      <DependentUpon>201602051931455_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
