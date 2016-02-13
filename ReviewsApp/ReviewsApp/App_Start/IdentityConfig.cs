@@ -29,8 +29,8 @@ namespace ReviewsApp
         {
             var products = new List<Product>
             {
-                new Product { Name = "Product 1", Type = Product.ProductType.Game, Rating = "PG" },
-                new Product { Name = "Product 2", Type = Product.ProductType.Game, Rating = "PG" }
+                new Product { Name = "Product 1", Type = Product.ProductType.Video, Rating = "PG" },
+                new Product { Name = "Product 2", Type = Product.ProductType.Video, Rating = "PG" }
 
             };
 

@@ -41,8 +41,8 @@ namespace ReviewsApp.Migrations
         {
             context.Products.AddOrUpdate(
                 p => p.Name,
-                new Product { Name = "Product 1", Type = Product.ProductType.Game, Rating = "PG" },
-                new Product { Name = "Product 2", Type = Product.ProductType.Game, Rating = "PG" }
+                new Product { Name = "Product 1", Type = Product.ProductType.Video, Rating = "PG" },
+                new Product { Name = "Product 2", Type = Product.ProductType.Video, Rating = "PG" }
             );
         }
 

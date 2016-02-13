@@ -3,10 +3,13 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using ReviewsApp.Code;
+using ReviewsApp.AWSECommerceService;
 
 namespace ReviewsApp.Controllers
 {
@@ -47,6 +50,27 @@ namespace ReviewsApp.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        public ActionResult SearchResults(AmazonSearch searchParameters)
+        {
+            AWSECommerceServicePortTypeClient amazonClient = new AWSECommerceServicePortTypeClient();
+
+            // prepare an ItemSearch request
+            ItemSearchRequest request = new ItemSearchRequest();
+            request.SearchIndex = searchParameters.ProductType.ToString();
+            request.Title = searchParameters.SearchText;
+            request.ResponseGroup = new string[] { "Small", "Reviews" };
+
+            ItemSearch itemSearch = new ItemSearch();
+            itemSearch.Request = new ItemSearchRequest[] { request };
+            itemSearch.AWSAccessKeyId = ConfigurationManager.AppSettings["AKIAJQRB4ENL4MVWZTTQ"];
+            itemSearch.AssociateTag = "donncord-20";
+
+            // send the ItemSearch request
+            ItemSearchResponse response = amazonClient.ItemSearch(itemSearch);
+
+            return View(response.Items[0]);
         }
     }
 }

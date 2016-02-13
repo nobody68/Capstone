@@ -9,9 +9,15 @@ namespace ReviewsApp.Models
     {
         public enum ProductType
         {
-            Movie, 
-            Game,
-            Music
+            Books,
+            DVD,
+            Music,
+            Apparel,
+            Video,
+            Jewlery,
+            Automotive,
+            Watch,
+            Electronics
         };
 
         public int Id { get; set; }

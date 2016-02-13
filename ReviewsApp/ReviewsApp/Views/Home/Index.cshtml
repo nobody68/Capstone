@@ -1,8 +1,41 @@
-﻿@{
+﻿@using System.Collections
+@using ReviewsApp.Code
+@using ReviewsApp.Models
+@using WebGrease.Css.Extensions
+@{
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
+<br /><br /><br /><br />
+
+<div>
+@using (Html.BeginForm("SearchResults", "Home", FormMethod.Get))
+{
+    @Html.TextBox("SearchText")
+    
+
+    var productTypes = AppUtilities.GetEnumValues<Product.ProductType>();
+    var dropDownList = new List<SelectListItem>();
+
+    productTypes.ForEach(productType => dropDownList.Add(
+        new SelectListItem
+        {
+            Text = productType.ToString(),
+            Value = productType.ToString()
+        }));
+
+    @Html.DropDownList("ProductType", dropDownList);
+    
+
+
+    <input type="submit" value="Search" />
+}
+
+</div>
+
+
+
+@*<div class="jumbotron">
     <h1>ASP.NET Identity</h1>
     <p class="lead">ASP.NET Identity is the membership system for ASP.NET apps</p>
     <p><a href="http://www.asp.net/identity" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
@@ -151,4 +184,4 @@
             </dd>
         </dl>
     </li>
-</ol>
+</ol>*@

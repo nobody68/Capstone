@@ -1,0 +1,36 @@
+﻿@using ReviewsApp.AWSECommerceService;
+@model Items
+
+@{
+    ViewBag.Title = "Search Results";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<body style="overflow-x: scroll">
+<table class="table">
+    <tr>
+        <th style="width: 15em;">Title</th>
+        <th>Reviews</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model.Item)
+    {
+        <tr>
+            <td>@item.ItemAttributes.Title</td>
+            <td>
+                <iframe src=@item.CustomerReviews.IFrameURL width="700"></iframe>
+            </td>
+            <td>Add to Favorites</td>
+        </tr>
+
+    }
+
+
+
+</table>
+
+
+</body>
+
+<p>Use this area to provide additional information.</p>
