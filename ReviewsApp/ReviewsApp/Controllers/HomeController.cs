@@ -60,7 +60,7 @@ namespace ReviewsApp.Controllers
             ItemSearchRequest request = new ItemSearchRequest();
             request.SearchIndex = searchParameters.ProductType.ToString();
             request.Title = searchParameters.SearchText;
-            request.ResponseGroup = new string[] { "Small", "Reviews" };
+            request.ResponseGroup = new string[] { "Small", "Reviews", "Images" };
 
             ItemSearch itemSearch = new ItemSearch();
             itemSearch.Request = new ItemSearchRequest[] { request };
