@@ -149,6 +149,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Code\AmazonProduct.cs" />
+    <Compile Include="Code\ReviewSearch.cs" />
     <Compile Include="Code\AmazonSearch.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -171,11 +173,6 @@
     </Compile>
     <Compile Include="IdentityExtensions\MyClaimsIdentityFactory.cs" />
     <Compile Include="IdentityExtensions\MyValidation.cs" />
-    <Compile Include="Migrations\201602051931455_InitialCreate.cs" />
-    <Compile Include="Migrations\201602051931455_InitialCreate.Designer.cs">
-      <DependentUpon>201602051931455_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
     <Compile Include="Models\AppModel.cs" />
@@ -193,10 +190,6 @@
     <Compile Include="Controllers\ToDoController.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\aspnet-WebApplication4-20130627083537.mdf" />
-    <Content Include="App_Data\aspnet-WebApplication4-20130627083537_log.ldf">
-      <DependentUpon>aspnet-WebApplication4-20130627083537.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -284,7 +277,7 @@
     <Content Include="Views\Reviews\Edit.cshtml" />
     <Content Include="Views\Reviews\Index.cshtml" />
     <Content Include="Views\Favorites\All.cshtml" />
-    <Content Include="Views\Home\SearchResults.cshtml" />
+    <Content Include="Views\Home\ProductSearchResults.cshtml" />
     <None Include="Service References\AWSECommerceService\AWSECommerceService.wsdl" />
     <Content Include="Service References\AWSECommerceService\ReviewsApp.AWSECommerceService.BrowseNodeLookupResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -340,8 +333,10 @@
     <Content Include="Service References\AWSECommerceService\ReviewsApp.AWSECommerceService.SimilarityLookupResponse1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Views\Home\ReviewSearchResults.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="bin\" />
   </ItemGroup>
   <ItemGroup>
@@ -378,11 +373,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\UsersAdmin\Index.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201602051931455_InitialCreate.resx">
-      <DependentUpon>201602051931455_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AmazonApi\AmazonApi.csproj">

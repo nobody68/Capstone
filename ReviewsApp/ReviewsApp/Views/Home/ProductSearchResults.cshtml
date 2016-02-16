@@ -1,0 +1,63 @@
+﻿@using ReviewsApp.AWSECommerceService;
+@using ReviewsApp.Models
+@model Items
+
+@{
+    ViewBag.Title = "Search Results";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<body style="overflow-x: scroll">
+<br/>
+    <table class="table">
+
+        <tr>
+            <th style="width: 15em;">Title</th>
+            <th>Product Image</th>
+            <th>Product Details</th>
+            <th>Action</th>
+        </tr>
+        @foreach (var item in Model.Item)
+        {
+            <tr>
+                <td>@item.ItemAttributes.Title</td>
+                <td>
+                    <img src="@item.MediumImage.URL" width="200" height="200" />
+                </td>
+                <td>
+                    @item.ItemAttributes.Brand &nbsp; @item.ItemAttributes.ModelYear
+                </td>
+                <td>
+                    @Html.ActionLink(
+                        "View Reviews",                                                  // linkText
+                        "ReviewSearchResults",                                    // actionName
+                        "Home",                                                   // controllerName
+                        new
+                        {                                                     // routeValues
+                            ASIN = item.ASIN,
+                            iFrameUrl = item.CustomerReviews.IFrameURL
+                        },
+                        null                                                      // htmlAttributes
+                     )
+                    @*@using (Html.BeginForm("ReviewSearchResults", "Home", FormMethod.Post))
+                    {                        
+                        @Html.HiddenFor(iFrameUrl => item.CustomerReviews.IFrameURL)
+                        @Html.HiddenFor(x => item.ASIN)
+
+
+                        <input type="submit" value="Search Reviews" />
+                    }*@
+                </td>
+            </tr>
+
+        }
+
+
+
+    </table>
+
+
+</body>
+
+<p>Use this area to provide additional information.</p>

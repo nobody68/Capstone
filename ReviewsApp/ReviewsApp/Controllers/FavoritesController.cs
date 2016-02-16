@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using ReviewsApp.AWSECommerceService;
 using ReviewsApp.Models;
 
 namespace ReviewsApp.Controllers
@@ -86,6 +87,30 @@ namespace ReviewsApp.Controllers
             return View(favorite);
         }
 
+        // POST: Favorites/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Create([Bind(Include = "ASIN,Name,Type")] Product product)
+        {
+            var currentUser = await manager.FindByIdAsync(User.Identity.GetUserId());
+            var favorite = new Favorite();
+            if (ModelState.IsValid)
+            {
+                db.Products.Add(product);
+                favorite.Product = product;
+
+                favorite.User = currentUser;
+                db.Favorites.Add(favorite);
+                await db.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+
+            return View(favorite);
+        }
+
+
         // GET: Favorites/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
@@ -111,7 +136,7 @@ namespace ReviewsApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,UserId,ProductId")] Favorite favorite)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,UserId,ASIN")] Favorite favorite)
         {
             if (ModelState.IsValid)
             {
@@ -119,7 +144,7 @@ namespace ReviewsApp.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            ViewBag.ProductId = new SelectList(db.Products, "Id", "Name", favorite.ProductId);
+            ViewBag.ProductId = new SelectList(db.Products, "Id", "Name", favorite.ASIN);
             return View(favorite);
         }
 
@@ -161,6 +186,34 @@ namespace ReviewsApp.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        // POST: Favorites/SaveFavoriteToAccount
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        protected async Task<ActionResult> SaveFavoriteToAccount(/*Item item,*/ String returnUrl)
+        {
+            //var product = new Product
+            //{
+            //    ASIN = item.ASIN,
+            //    Name = item.ItemAttributes.Title
+            //};
+
+            Favorite favorite = new Favorite();
+            if (ModelState.IsValid)
+            {
+                //db.Products.Add(product);
+                //favorite.Product = product;
+                //favorite.ASIN = item.ASIN;
+                favorite.User = manager.FindById(User.Identity.GetUserId());
+
+                db.Favorites.Add(favorite);
+                await db.SaveChangesAsync();
+            }
+
+            return Redirect(returnUrl);
         }
     }
 }

@@ -15,6 +15,16 @@ namespace ReviewsApp.Controllers
 {
     public class HomeController : Controller
     {
+
+        private MyDbContext db;
+        private UserManager<ApplicationUser> manager;
+
+        public HomeController()
+        {
+            db = new MyDbContext();
+            manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+        }
+
         public ActionResult Index()
         {
             return View();
@@ -52,7 +62,7 @@ namespace ReviewsApp.Controllers
             return View();
         }
 
-        public ActionResult SearchResults(AmazonSearch searchParameters)
+        public ActionResult ProductSearchResults(AmazonSearch searchParameters)
         {
             AWSECommerceServicePortTypeClient amazonClient = new AWSECommerceServicePortTypeClient();
 
@@ -60,7 +70,7 @@ namespace ReviewsApp.Controllers
             ItemSearchRequest request = new ItemSearchRequest();
             request.SearchIndex = searchParameters.ProductType.ToString();
             request.Title = searchParameters.SearchText;
-            request.ResponseGroup = new string[] { "Small", "Reviews", "Images" };
+            request.ResponseGroup = new string[] { "Medium", "Reviews", "Images", "ItemAttributes" };
 
             ItemSearch itemSearch = new ItemSearch();
             itemSearch.Request = new ItemSearchRequest[] { request };
@@ -71,6 +81,102 @@ namespace ReviewsApp.Controllers
             ItemSearchResponse response = amazonClient.ItemSearch(itemSearch);
 
             return View(response.Items[0]);
+        }
+
+        //[HttpPost]
+        public ActionResult ReviewSearchResults(string ASIN, string iFrameUrl)
+        //public ActionResult ReviewSearchResults(ReviewSearch reviewSearch)
+        {
+            AWSECommerceServicePortTypeClient amazonClient = new AWSECommerceServicePortTypeClient();
+            ItemLookup itemLookup = new ItemLookup()
+            {
+                AssociateTag = "donncord-20"
+            };
+            itemLookup.AWSAccessKeyId = "AKIAJQRB4ENL4MVWZTTQ";
+
+            ItemLookupRequest itemLookupRequest = new ItemLookupRequest();
+            itemLookupRequest.IdTypeSpecified = true;
+            itemLookupRequest.IdType = ItemLookupRequestIdType.ASIN;
+            itemLookupRequest.ItemId = new String[] { ASIN };
+            itemLookupRequest.ResponseGroup = new String[] { "Medium", "Reviews", "Images", "ItemAttributes" };
+            itemLookup.Request = new ItemLookupRequest[] { itemLookupRequest };
+
+            ItemLookupResponse response = amazonClient.ItemLookup(itemLookup);
+
+            var items = (response.Items[0]);
+            var item = items.Item[0];
+            //foreach (var item in response.Items[0])
+
+            var product = new Product
+            {
+                ASIN = item.ASIN
+            };
+
+            var reviews = new List<Review>();
+
+            reviews.Add(
+                new Review
+                {
+                    ASIN = product.ASIN,
+                    Link = item.CustomerReviews.IFrameURL
+                });
+            product.Reviews = reviews;
+
+            return View(product);
+        }
+
+        public ActionResult SaveReviewToFavorites(string ASIN, string returnUrl)
+        {
+            AWSECommerceServicePortTypeClient amazonClient = new AWSECommerceServicePortTypeClient();
+            ItemLookup itemLookup = new ItemLookup()
+            {
+                AssociateTag = "donncord-20"
+            };
+            itemLookup.AWSAccessKeyId = "AKIAJQRB4ENL4MVWZTTQ";
+
+            ItemLookupRequest itemLookupRequest = new ItemLookupRequest();
+            itemLookupRequest.IdTypeSpecified = true;
+            itemLookupRequest.IdType = ItemLookupRequestIdType.ASIN;
+            itemLookupRequest.ItemId = new String[] { ASIN };
+            itemLookupRequest.ResponseGroup = new String[] { "Medium", "Reviews", "Images", "ItemAttributes" };
+            itemLookup.Request = new ItemLookupRequest[] { itemLookupRequest };
+
+            ItemLookupResponse response = amazonClient.ItemLookup(itemLookup);
+
+            var items = (response.Items[0]);
+            var item = items.Item[0];
+            //foreach (var item in response.Items[0])
+
+            var product = new Product
+            {
+                ASIN = item.ASIN,
+                Name = item.ItemAttributes.Title
+            };
+
+            var review = new Review
+            {
+                ASIN = product.ASIN,
+                Link = item.CustomerReviews.IFrameURL,
+            };
+
+            if (ModelState.IsValid)
+            {
+                db.Products.Add(product);
+                db.SaveChanges();
+
+                var storedProduct = db.Products.SingleOrDefault(x => x.ASIN == ASIN);
+                review.ProductId = storedProduct.Id;
+                
+
+                //review.Product = storedProduct;
+
+                db.Reviews.Add(review);
+                db.SaveChanges();
+                return Redirect(returnUrl);
+            }
+
+
+            return Redirect(returnUrl);
         }
     }
 }

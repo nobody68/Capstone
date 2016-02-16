@@ -57,7 +57,7 @@ namespace ReviewsApp.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ProductId = new SelectList(db.Products, "Id", "Name", review.ProductId);
+            ViewBag.ProductId = new SelectList(db.Products, "Id", "Name", review.ASIN);
             return View(review);
         }
 
@@ -73,7 +73,7 @@ namespace ReviewsApp.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ProductId = new SelectList(db.Products, "Id", "Name", review.ProductId);
+            ViewBag.ProductId = new SelectList(db.Products, "Id", "Name", review.ASIN);
             return View(review);
         }
 
@@ -90,7 +90,7 @@ namespace ReviewsApp.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ProductId = new SelectList(db.Products, "Id", "Name", review.ProductId);
+            ViewBag.ProductId = new SelectList(db.Products, "Id", "Name", review.ASIN);
             return View(review);
         }
 

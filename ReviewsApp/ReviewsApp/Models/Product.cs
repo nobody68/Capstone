@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -20,7 +22,10 @@ namespace ReviewsApp.Models
             Electronics
         };
 
+        [Key, Column(Order = 0), DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+        [Key, Column(Order = 1)]
+        public string ASIN { get; set; }
         public string Name { get; set; }
         public ProductType Type { get; set; }
         public string Rating { get; set; }

@@ -14,8 +14,8 @@ namespace ReviewsApp
 {
     // This is useful if you do not want to tear down the database each time you run the application.
     // You want to create a new database if the Model changes
-    public class MyDbInitializer : DropCreateDatabaseIfModelChanges<MyDbContext>
-    //public class MyDbInitializer : DropCreateDatabaseAlways<MyDbContext>
+    //public class MyDbInitializer : DropCreateDatabaseIfModelChanges<MyDbContext>
+    public class MyDbInitializer : DropCreateDatabaseAlways<MyDbContext>
     {
         protected override void Seed(MyDbContext context)
         {

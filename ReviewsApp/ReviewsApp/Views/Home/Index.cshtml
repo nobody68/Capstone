@@ -6,10 +6,8 @@
     ViewBag.Title = "Home Page";
 }
 
-<br /><br /><br /><br />
-
-<div>
-@using (Html.BeginForm("SearchResults", "Home", FormMethod.Get))
+<br /><br /><br /><br /><div>
+@using (Html.BeginForm("ProductSearchResults", "Home", FormMethod.Post))
 {
     @Html.TextBox("SearchText")
     

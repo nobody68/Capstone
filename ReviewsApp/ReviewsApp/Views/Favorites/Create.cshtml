@@ -17,10 +17,10 @@
         @Html.ValidationSummary(true)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ProductId, "ProductId", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.ASIN, "ProductId", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("ProductId", String.Empty)
-                @Html.ValidationMessageFor(model => model.ProductId)
+                @Html.ValidationMessageFor(model => model.ASIN)
             </div>
         </div>
 

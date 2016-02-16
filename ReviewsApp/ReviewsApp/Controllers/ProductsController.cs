@@ -70,13 +70,13 @@ namespace ReviewsApp.Controllers
         }
 
         // GET: Products/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int? id, string ASIN)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = db.Products.Find(id);
+            Product product = db.Products.Find(id, ASIN);
             if (product == null)
             {
                 return HttpNotFound();
@@ -89,7 +89,7 @@ namespace ReviewsApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Type,Rating")] Product product)
+        public ActionResult Edit([Bind(Include = "Id,ASIN, Name,Type,Rating")] Product product)
         {
             if (ModelState.IsValid)
             {
