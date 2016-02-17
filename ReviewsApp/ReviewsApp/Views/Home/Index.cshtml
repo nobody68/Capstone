@@ -6,30 +6,34 @@
     ViewBag.Title = "Home Page";
 }
 
-<br /><br /><br /><br /><div>
-@using (Html.BeginForm("ProductSearchResults", "Home", FormMethod.Post))
-{
-    @Html.TextBox("SearchText")
-    
+<br/><br/><br/><br/>
+<div style="width: 800px; margin: 0 auto;">
+    @using (Html.BeginForm("ProductSearchResults", "Home", FormMethod.Post))
+    {
 
-    var productTypes = AppUtilities.GetEnumValues<Product.ProductType>();
-    var dropDownList = new List<SelectListItem>();
-
-    productTypes.ForEach(productType => dropDownList.Add(
-        new SelectListItem
-        {
-            Text = productType.ToString(),
-            Value = productType.ToString()
-        }));
-
-    @Html.DropDownList("ProductType", dropDownList);
-    
+        @Html.TextBox("SearchText")
 
 
-    <input type="submit" value="Search" />
-}
+        var productTypes = AppUtilities.GetEnumValues<Product.ProductType>();
+        var dropDownList = new List<SelectListItem>();
+
+        productTypes.ForEach(productType => dropDownList.Add(
+            new SelectListItem
+            {
+                Text = productType.ToString(),
+                Value = productType.ToString()
+            }));
+                               
+        @Html.DropDownList("ProductType", dropDownList);
+
+        <br/><br/>
+
+        <input type="submit" value="Search" />
+    }
 
 </div>
+
+
 
 
 

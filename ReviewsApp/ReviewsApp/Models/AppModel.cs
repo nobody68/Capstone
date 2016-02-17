@@ -12,6 +12,7 @@ namespace ReviewsApp.Models
 {
     public class ApplicationUser : IdentityUser
     {
+        public override string Id { get; set; }
         // HomeTown will be stored in the same table as Users
         public string HomeTown { get; set; }
         public virtual ICollection<ToDo> ToDoes { get; set; }

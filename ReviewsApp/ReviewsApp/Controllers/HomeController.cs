@@ -127,6 +127,8 @@ namespace ReviewsApp.Controllers
 
         public ActionResult SaveReviewToFavorites(string ASIN, string returnUrl)
         {
+            ApplicationUser user = manager.FindById(User.Identity.GetUserId());
+
             AWSECommerceServicePortTypeClient amazonClient = new AWSECommerceServicePortTypeClient();
             ItemLookup itemLookup = new ItemLookup()
             {
@@ -157,21 +159,37 @@ namespace ReviewsApp.Controllers
             {
                 ASIN = product.ASIN,
                 Link = item.CustomerReviews.IFrameURL,
+                Source = "Amazon"
+            };
+
+            var favorite = new Favorite
+            {
+                ASIN = ASIN,
+                User = user,
+                Product = product
             };
 
             if (ModelState.IsValid)
             {
-                db.Products.Add(product);
-                db.SaveChanges();
+                if (!db.Products.Any(x => x.ASIN == ASIN))
+                {
+                    db.Products.Add(product);
+                    db.SaveChanges();
+                }
 
-                var storedProduct = db.Products.SingleOrDefault(x => x.ASIN == ASIN);
-                review.ProductId = storedProduct.Id;
+                review.ASIN = ASIN;
+                if (!db.Reviews.Any(x => x.ASIN == ASIN && x.Source == review.Source))
+                 {
+                    db.Reviews.Add(review);
+                    db.SaveChanges();
+                }
+
+                if (!db.Favorites.Any(x => x.ASIN == ASIN))
+                {
+                    db.Favorites.Add(favorite);
+                    db.SaveChanges();
+                }
                 
-
-                //review.Product = storedProduct;
-
-                db.Reviews.Add(review);
-                db.SaveChanges();
                 return Redirect(returnUrl);
             }
 

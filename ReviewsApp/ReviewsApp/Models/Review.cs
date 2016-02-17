@@ -11,12 +11,14 @@ namespace ReviewsApp.Models
     {
         [Key, Column(Order = 0), DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+        [Key, Column(Order = 2)]
+        public string Source { get; set; }
         public int ProductId { get; set; }
         public string ASIN { get; set; }
         public string ProductReview { get; set; }
         public string Link { get; set; }
 
-        [ForeignKey("ProductId, ASIN")]
+        [ForeignKey("ASIN")]
         public virtual Product Product { get; set; }
     }
 }

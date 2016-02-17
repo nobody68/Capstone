@@ -22,13 +22,13 @@ namespace ReviewsApp.Controllers
         }
 
         // GET: Reviews/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int? id, string source, string ASIN)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Review review = db.Reviews.Find(id);
+            Review review = db.Reviews.Find(id, source, ASIN);
             if (review == null)
             {
                 return HttpNotFound();
@@ -95,13 +95,13 @@ namespace ReviewsApp.Controllers
         }
 
         // GET: Reviews/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int? id, string source)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Review review = db.Reviews.Find(id);
+            Review review = db.Reviews.Find(id, source);
             if (review == null)
             {
                 return HttpNotFound();

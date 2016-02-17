@@ -64,7 +64,7 @@ namespace ReviewsApp.Controllers
         // GET: Favorites/Create
         public ActionResult Create()
         {
-            ViewBag.ProductId = new SelectList(db.Products, "Id", "Name");
+            ViewBag.ASIN = new SelectList(db.Products, "ASIN", "Name");
             return View();
         }
 
@@ -73,7 +73,7 @@ namespace ReviewsApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,UserId,ProductId")] Favorite favorite)
+        public async Task<ActionResult> Create([Bind(Include = "Id,UserId,ASIN")] Favorite favorite)
         {
             var currentUser = await manager.FindByIdAsync(User.Identity.GetUserId());
             if (ModelState.IsValid)
@@ -90,25 +90,25 @@ namespace ReviewsApp.Controllers
         // POST: Favorites/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "ASIN,Name,Type")] Product product)
-        {
-            var currentUser = await manager.FindByIdAsync(User.Identity.GetUserId());
-            var favorite = new Favorite();
-            if (ModelState.IsValid)
-            {
-                db.Products.Add(product);
-                favorite.Product = product;
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<ActionResult> Create([Bind(Include = "ASIN,Name,Type")] Product product)
+        //{
+        //    var currentUser = await manager.FindByIdAsync(User.Identity.GetUserId());
+        //    var favorite = new Favorite();
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.Products.Add(product);
+        //        favorite.Product = product;
 
-                favorite.User = currentUser;
-                db.Favorites.Add(favorite);
-                await db.SaveChangesAsync();
-                return RedirectToAction("Index");
-            }
+        //        favorite.User = currentUser;
+        //        db.Favorites.Add(favorite);
+        //        await db.SaveChangesAsync();
+        //        return RedirectToAction("Index");
+        //    }
 
-            return View(favorite);
-        }
+        //    return View(favorite);
+        //}
 
 
         // GET: Favorites/Edit/5

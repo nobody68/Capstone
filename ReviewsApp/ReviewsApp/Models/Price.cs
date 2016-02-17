@@ -16,7 +16,7 @@ namespace ReviewsApp.Models
         public decimal ProductPrice { get; set; }
         public string Link { get; set; }
 
-        [ForeignKey("ProductId, ASIN")]
+        [ForeignKey("ASIN")]
         public virtual Product Product { get; set; }
     }
 }

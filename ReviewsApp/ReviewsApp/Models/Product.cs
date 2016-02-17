@@ -22,9 +22,9 @@ namespace ReviewsApp.Models
             Electronics
         };
 
-        [Key, Column(Order = 0), DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-        [Key, Column(Order = 1)]
+        //[Key, Column(Order = 0), DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        //public int Id { get; set; }
+        [Key]
         public string ASIN { get; set; }
         public string Name { get; set; }
         public ProductType Type { get; set; }

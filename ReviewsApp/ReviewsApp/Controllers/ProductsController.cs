@@ -70,13 +70,13 @@ namespace ReviewsApp.Controllers
         }
 
         // GET: Products/Edit/5
-        public ActionResult Edit(int? id, string ASIN)
+        public ActionResult Edit(string ASIN)
         {
-            if (id == null)
+            if (ASIN == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = db.Products.Find(id, ASIN);
+            Product product = db.Products.Find(ASIN);
             if (product == null)
             {
                 return HttpNotFound();
