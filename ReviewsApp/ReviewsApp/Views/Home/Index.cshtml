@@ -7,25 +7,25 @@
 }
 
 <br/><br/><br/><br/>
-<div style="width: 800px; margin: 0 auto;">
+<div align="center">
     @using (Html.BeginForm("ProductSearchResults", "Home", FormMethod.Post))
     {
 
         @Html.TextBox("SearchText")
 
 
-        var productTypes = AppUtilities.GetEnumValues<Product.ProductType>();
-        var dropDownList = new List<SelectListItem>();
+            var productTypes = AppUtilities.GetEnumValues<Product.ProductType>();
+            var dropDownList = new List<SelectListItem>();
 
-        productTypes.ForEach(productType => dropDownList.Add(
-            new SelectListItem
-            {
-                Text = productType.ToString(),
-                Value = productType.ToString()
-            }));
-                               
-        @Html.DropDownList("ProductType", dropDownList);
-
+            productTypes.ForEach(productType => dropDownList.Add(
+                new SelectListItem
+                {
+                    Text = productType.ToString(),
+                    Value = productType.ToString()
+                }));
+            <div style="width:5px; height:auto; display:inline-block;">                   
+        @Html.DropDownList("ProductType", dropDownList)
+        </div>
         <br/><br/>
 
         <input type="submit" value="Search" />

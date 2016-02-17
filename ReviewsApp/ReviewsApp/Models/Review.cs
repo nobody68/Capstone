@@ -20,5 +20,7 @@ namespace ReviewsApp.Models
 
         [ForeignKey("ASIN")]
         public virtual Product Product { get; set; }
+           
+
     }
 }

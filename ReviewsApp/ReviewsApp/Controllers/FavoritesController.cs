@@ -128,6 +128,8 @@ namespace ReviewsApp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.Unauthorized);
             }
+            ViewBag.ASIN = new SelectList(db.Products, "ASIN", "Name");
+
             return View(favorite);
         }
 
@@ -144,7 +146,7 @@ namespace ReviewsApp.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            ViewBag.ProductId = new SelectList(db.Products, "Id", "Name", favorite.ASIN);
+            ViewBag.ASIN = new SelectList(db.Products, "ASIN", "Name");
             return View(favorite);
         }
 

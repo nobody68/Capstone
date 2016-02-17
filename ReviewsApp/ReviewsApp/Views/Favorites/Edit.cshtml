@@ -1,4 +1,5 @@
-﻿@model ReviewsApp.Models.Favorite
+﻿@using ReviewsApp.Models
+@model ReviewsApp.Models.Favorite
 
 @{
     ViewBag.Title = "Edit";
@@ -15,13 +16,12 @@
         <h4>Favorite</h4>
         <hr />
         @Html.ValidationSummary(true)
-        @Html.HiddenFor(model => model.Id)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ProductId, "ProductId", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.ASIN, "ASIN", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("ProductId", String.Empty)
-                @Html.ValidationMessageFor(model => model.ProductId)
+                @Html.DropDownList("ASIN", String.Empty)
+                @Html.ValidationMessageFor(model => model.ASIN)
             </div>
         </div>
 
