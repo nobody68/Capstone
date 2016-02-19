@@ -1,0 +1,48 @@
+﻿@using ReviewsApp.AWSECommerceService;
+@using ReviewsApp.Models
+@model Product
+
+@{
+    ViewBag.Title = "Search Results";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<body style="overflow-x: scroll">
+<table class="table">
+
+    <tr>
+        <th style="width: 15em;">Source</th>
+        <th>Review</th>
+        <th>Action</th>
+    </tr>
+    @foreach (var review in Model.Reviews)
+    {
+        <tr>
+            <td>Amazon</td>
+            <td>
+                <iframe src=@review.Link width="700"></iframe>
+            </td>
+            <td>
+                @Html.ActionLink(
+                        "Add to Favorites",                                         // linkText
+                        "SaveReviewToFavorites",                                    // actionName
+                        "Home",                                                     // controllerName
+                        new
+                        {                                                           // routeValues
+                            ASIN = review.ASIN,
+                            returnUrl = Request.RawUrl
+                        },
+                        null                                                        // htmlAttributes
+                     )
+            </td>
+        </tr>
+
+    }
+
+
+
+</table>
+
+
+</body>
