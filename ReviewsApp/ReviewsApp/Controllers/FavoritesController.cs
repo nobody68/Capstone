@@ -87,30 +87,6 @@ namespace ReviewsApp.Controllers
             return View(favorite);
         }
 
-        // POST: Favorites/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<ActionResult> Create([Bind(Include = "ASIN,Name,Type")] Product product)
-        //{
-        //    var currentUser = await manager.FindByIdAsync(User.Identity.GetUserId());
-        //    var favorite = new Favorite();
-        //    if (ModelState.IsValid)
-        //    {
-        //        db.Products.Add(product);
-        //        favorite.Product = product;
-
-        //        favorite.User = currentUser;
-        //        db.Favorites.Add(favorite);
-        //        await db.SaveChangesAsync();
-        //        return RedirectToAction("Index");
-        //    }
-
-        //    return View(favorite);
-        //}
-
-
         // GET: Favorites/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
@@ -195,7 +171,7 @@ namespace ReviewsApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        protected async Task<ActionResult> SaveFavoriteToAccount(/*Item item,*/ String returnUrl)
+        protected async Task<ActionResult> SaveFavoriteToAccount(string returnUrl)
         {
             //var product = new Product
             //{
