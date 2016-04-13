@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReviewsApp", "ReviewsApp\Re
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmazonApi", "AmazonApi\AmazonApi.csproj", "{970E5931-BB10-460A-B3CF-9C297CA7D995}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{9A31ED1C-4895-45A6-A237-2FDD1909D350}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{970E5931-BB10-460A-B3CF-9C297CA7D995}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{970E5931-BB10-460A-B3CF-9C297CA7D995}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{970E5931-BB10-460A-B3CF-9C297CA7D995}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A31ED1C-4895-45A6-A237-2FDD1909D350}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A31ED1C-4895-45A6-A237-2FDD1909D350}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A31ED1C-4895-45A6-A237-2FDD1909D350}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A31ED1C-4895-45A6-A237-2FDD1909D350}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
